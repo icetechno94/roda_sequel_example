@@ -66,3 +66,11 @@ desc 'Open irb shell in development mode'
 task :dev_irb do
   irb.call('development')
 end
+
+# Seeds
+
+desc 'Seed dev db'
+task :dev_seed do
+  require_relative 'db/seed/base_seeder'
+  BaseSeeder.call(10)
+end

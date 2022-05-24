@@ -1,7 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    concurrent-ruby (1.1.10)
     erubi (1.10.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
+    i18n (1.10.0)
+      concurrent-ruby (~> 1.0)
     pg (1.3.5)
     rack (2.2.3)
     rack-unreloader (1.8.0)
@@ -18,6 +23,7 @@ PLATFORMS
 
 DEPENDENCIES
   erubi (>= 1.5)
+  faker
   rack-unreloader (>= 1.8)
   rake
   roda (>= 3.50)
