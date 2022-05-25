@@ -2,9 +2,7 @@
 
 # Parent class for receivers
 class BaseReceiver
-  def self.call(*)
-    raise ''
-  end
+  def self.call(*); raise; end
 
   attr_reader :user_roles
 
@@ -16,7 +14,7 @@ class BaseReceiver
   end
 
   def serialize
-    user_roles.map { |user_role| user_role.slice(*keys_to_serialize) }.to_json
+    user_roles.map { |user_role| user_role.slice(*keys_to_serialize) }
   end
 
   private
@@ -37,11 +35,7 @@ class BaseReceiver
     @user_roles = user_roles.offset(offset) unless offset.to_i.zero?
   end
 
-  def load_user_roles
-    raise ''
-  end
+  def load_user_roles; raise; end
 
-  def keys_to_serialize
-    raise ''
-  end
+  def keys_to_serialize; raise; end
 end

@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'lib/tasks/**/*.rb'
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/SingleLineMethods:
+  Exclude:
+    - 'app/services/receivers/base_receiver.rb'

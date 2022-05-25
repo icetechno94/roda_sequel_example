@@ -7,7 +7,15 @@ class UsersController < ApplicationController
   route do |r|
     # GET /user/roles
     r.is 'roles' do
-      ReceiveUserRolesService.call(user_uuid: r.params['uuid'], offset: r.params['offset'], limit: r.params['limit'])
+      ReceiveUserRolesService.call(**user_params(r.params)).to_json
     end
+  end
+
+  def user_params(params)
+    {
+      user_uuid: params['uuid'],
+      offset: params['offset'],
+      limit: params['limit']
+    }
   end
 end
