@@ -7,7 +7,15 @@ class RolesController < ApplicationController
   route do |r|
     # GET /role/:key/users
     r.is 'users' do
-      ReceiveRoleUsersService.call(key: r.params['key'], offset: r.params['offset'], limit: r.params['limit'])
+      ReceiveRoleUsersService.call(**role_params(r.params)).to_json
     end
+  end
+
+  def role_params(params)
+    {
+      key: params['key'],
+      offset: params['offset'],
+      limit: params['limit']
+    }
   end
 end

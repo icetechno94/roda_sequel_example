@@ -6,7 +6,7 @@ require_relative 'base_receiver'
 class ReceiveUserRolesService < BaseReceiver
   def self.call(user_uuid: nil, limit: 0, offset: 0)
     user = User.find(uuid: user_uuid)
-    return if user.nil?
+    return [] if user.nil?
 
     new(object_id: user.id, limit: limit, offset: offset).serialize
   end
@@ -14,7 +14,7 @@ class ReceiveUserRolesService < BaseReceiver
   private
 
   def keys_to_serialize
-    [:name]
+    %i[name key]
   end
 
   def load_user_roles

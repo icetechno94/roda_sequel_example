@@ -6,7 +6,7 @@ require_relative 'base_receiver'
 class ReceiveRoleUsersService < BaseReceiver
   def self.call(key: nil, limit: 0, offset: 0)
     role = Role.find(key: key)
-    return if role.nil?
+    return [] if role.nil?
 
     new(object_id: role.id, limit: limit, offset: offset).serialize
   end

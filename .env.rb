@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+ENV['DATABASE_HOST']='localhost'
+ENV['DATABASE_USER_NAME']='roda_sequel_example'
+ENV['DATABASE_USER_PASSWORD'] = ''
 case ENV['RACK_ENV'] ||= 'development'
 when 'test'
-  ENV['RODA_SEQUEL_EXAMPLE_DATABASE_URL'] ||= 'postgres:///roda_sequel_example_test?user=roda_sequel_example'
+  ENV['DATABASE_NAME'] ||='roda_sequel_example_test'
 when 'development'
-  ENV['RODA_SEQUEL_EXAMPLE_DATABASE_URL'] ||= 'postgres:///roda_sequel_example_development?user=roda_sequel_example'
+  ENV['DATABASE_NAME'] ||='roda_sequel_example_development'
 end
