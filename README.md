@@ -16,7 +16,7 @@ Roda + Sequel example
 
 ## Up application
 
-    RACK_ENV=development rackup
+    puma
 
 ## Routes
 

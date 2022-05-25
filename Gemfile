@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'faker'
+gem 'puma'
 gem 'rack-unreloader', '>= 1.8'
 gem 'rake'
 gem 'roda', '>= 3.50'

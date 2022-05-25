@@ -11,7 +11,6 @@ require 'rack/unreloader'
 Unreloader = Rack::Unreloader.new(subclasses: %w[Roda Sequel::Model], logger: logger, reload: dev) { App }
 
 require_relative 'config/models'
-require 'lib/string'
 
 Unreloader.require('app.rb') { 'App' }
 run(dev ? Unreloader : Router.freeze.app)
